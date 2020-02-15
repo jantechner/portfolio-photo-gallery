@@ -1,8 +1,14 @@
 .painting-details {
-    width: 100%;
+  width: 100%;
+
+  .image-navigation-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
     img {
-        width: 80%;
-        max-height: auto;
+      max-width: 80%;
+      max-height: auto;
     }
+  }
 }
