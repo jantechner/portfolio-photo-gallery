@@ -1,29 +1,9 @@
-$thumbnails-spacing: 30px;
+@import "variables";
 
 #gallery {
   margin-right: $thumbnails-spacing/2;
   width: 80%;
   float: right;
-
-  #thumbnails {
-    width: 100%;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 0px;
-    -moz-column-count: 3;
-    -moz-column-gap: 0px;
-    column-count: 3;
-    column-gap: 0px;
-
-    .thumbnail {
-      display: inline-block;
-      width: 100%;
-
-      img {
-        height: auto;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 $thumbnails-spacing/2 $thumbnails-spacing;
-      }
-    }
-  }
 }
+
+
