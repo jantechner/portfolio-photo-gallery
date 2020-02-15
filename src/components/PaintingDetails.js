@@ -26,24 +26,28 @@ function PaintingDetails(props) {
   } else {
     return (
       <div className="painting-details">
-        <h1>Painting {painting.id}</h1>
-        <h2>Title: {painting.title}</h2>
-        <div className="image-navigation-wrapper">
-          <Link to={previousPaintingId.toString()}>
-            <FontAwesomeIcon
-              icon={["fas", "chevron-left"]}
-              size="3x"
-              style={{ color: "gray" }}
-            />
-          </Link>
-          <img src={painting.image} alt={painting.title} />
-          <Link to={nextPaintingId.toString()}>
-            <FontAwesomeIcon
-              icon={["fas", "chevron-right"]}
-              size="3x"
-              style={{ color: "gray" }}
-            />
-          </Link>
+        <div className="description">
+          <h1>Painting {painting.id}</h1>
+          <h2>Title: {painting.title}</h2>
+        </div>
+        <div>
+          <div className="image-navigation-wrapper">
+            <Link to={previousPaintingId.toString()}>
+              <FontAwesomeIcon
+                icon={["fas", "chevron-left"]}
+                size="3x"
+                style={{ color: "gray" }}
+              />
+            </Link>
+            <img src={painting.image} alt={painting.title} />
+            <Link to={nextPaintingId.toString()}>
+              <FontAwesomeIcon
+                icon={["fas", "chevron-right"]}
+                size="3x"
+                style={{ color: "gray" }}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     );
