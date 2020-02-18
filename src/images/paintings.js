@@ -29,17 +29,38 @@ const paintings = [
     {
         id: 4,
         image: require('./sample4.jpg').default,
-        title: "Sample 4"
+        title: "Sample 4",
+        size: [40, 50],
+        technique: "olej na płótnie",
+        year: 2017,
+        available: false,
     },
     {
         id: 5,
         image: require('./sample4.jpg').default,
-        title: "Sample 5"
+        title: "Sample 5",
+        size: [40, 50],
+        technique: "olej na płótnie",
+        year: 2017,
+        available: false,
     },
     {
         id: 6,
         image: require('./sample2.png').default,
-        title: "Sample 6"
+        title: "Sample 6",
+        size: [40, 50],
+        technique: "olej na płótnie",
+        year: 2017,
+        available: false,
+    },
+    {
+        id: 7,
+        image: require('./sample4.jpg').default,
+        title: "Sample 7",
+        size: [40, 50],
+        technique: "olej na płótnie",
+        year: 2017,
+        available: false,
     },
  
 ];

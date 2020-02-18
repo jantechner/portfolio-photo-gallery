@@ -8,8 +8,10 @@ function Thumbnail(painting) {
   return (
     <div className="thumbnail">
       <Link to={`${match.path}/${painting.id}`}>
-        <div className="image-box">
-          <img src={painting.image} alt={painting.title} />
+        <div className="image-container">
+          <div className="image-box">
+            <img src={painting.image} alt={painting.title} />
+          </div>
         </div>
       </Link>
     </div>
