@@ -1,9 +1,9 @@
 @import "variables";
 
 #gallery {
-  margin-right: $thumbnails-spacing/2;
-  width: 80%;
-  float: right;
+  margin: $thumbnails-spacing;
+  
+  display: inline-block;
 }
 
 

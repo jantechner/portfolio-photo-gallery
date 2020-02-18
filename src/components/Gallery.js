@@ -10,7 +10,6 @@ function Gallery(props) {
 
   return (
     <div id="gallery">
-      <h1>Gallery</h1>
       <div id="thumbnails">{thumbnails}</div>
     </div>
   );

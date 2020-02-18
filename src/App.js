@@ -8,7 +8,7 @@ import {
 import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Navigation from "./components/Navigation";
-import "./App.css";
+import "./App.scss";
 import PaintingDetails from "./components/PaintingDetails";
 
 function App() {
@@ -16,12 +16,14 @@ function App() {
     <Router>
       <div className="App">
         <Navigation />
-        <Switch>
-          <Redirect exact from="/" to="/gallery" />
-          <Route exact path="/gallery" component={Gallery} />
-          <Route path="/gallery/:paintingId" component={PaintingDetails} />
-          <Route path="/about" component={About} />
-        </Switch>
+        <div className="content">
+          <Switch>
+            <Redirect exact from="/" to="/gallery" />
+            <Route exact path="/gallery" component={Gallery} />
+            <Route path="/gallery/:paintingId" component={PaintingDetails} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );

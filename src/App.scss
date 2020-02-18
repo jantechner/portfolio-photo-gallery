@@ -1,5 +1,12 @@
+@import "./components/variables";
+
 .App {
   text-align: center;
+}
+
+.content {
+  width: 100% - $navigation-width;
+  float: left;
 }
 
 .App-logo {

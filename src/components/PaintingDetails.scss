@@ -4,7 +4,7 @@ $description-height: 10vh;
 
 .painting-details {
   width: 100%;
-  height: 100vh - $header-height;
+  height: 100vh;
 
   .description {
       height: $description-height;
@@ -18,7 +18,7 @@ $description-height: 10vh;
   }
 
   .image-navigation-wrapper {
-    height: 100vh - $header-height - $description-height;
+    height: 100vh - $description-height;
     box-sizing: border-box;
     padding: 30px;
 
