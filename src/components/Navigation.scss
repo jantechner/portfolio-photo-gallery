@@ -9,18 +9,29 @@
   margin: 20px 0 0 20px;
   z-index: 400;
 
-  .logo {
+  .logo-box {
+    box-sizing: border-box;
     width: 100%;
+    padding: $thumbnails-spacing $site-border-width 0 $thumbnails-spacing;
+    
+    .logo {
+      display: block;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      width: 100%;
+      height: auto;
+    }
   }
 
   .links {
     width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // size: 10;
+    margin-top: 50px;
 
     hr {
-      border-top: 1px solid rgba(0, 0, 0, 0.20);
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
       transition: width 0.4s ease;
     }
 
@@ -31,8 +42,23 @@
       width: 100%;
       text-align: start;
       display: block;
-      padding: 15px 30px;
+      padding: 15px 0 15px 50px;
       font-size: 25px;
+    }
+  }
+
+  .socials {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    .social-icon {
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
     }
   }
 }

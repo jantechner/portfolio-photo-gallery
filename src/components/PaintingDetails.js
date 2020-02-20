@@ -36,10 +36,10 @@ class PaintingDetails extends Component {
       return (
         <div className="painting-details">
           <div className="description">
-            <h2>{`"${this.painting.title}"`}</h2>
-            <h5>{this.painting.size[0] + "x" + this.painting.size[1]}</h5>
-            <h5>{this.painting.technique}</h5>
-            <h5>{this.painting.year}</h5>
+            <span>{`"${this.painting.title}"`}</span>
+            <span>{this.painting.size[0] + "x" + this.painting.size[1]}</span>
+            <span>{this.painting.technique}</span>
+            <span>{this.painting.year}</span>
           </div>
 
           <div className="image-navigation-wrapper">

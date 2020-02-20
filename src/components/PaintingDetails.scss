@@ -9,15 +9,14 @@ $description-height: 10vh;
 
   .description {
     position: absolute;
-    bottom: 20px;
-    left: 30px;;
+    bottom: 50px;
+    left: 50px;;
     height: $description-height;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     h1,
-    h2 {
+    span {
+      font-size: 20px;
+      text-align: start;
       display: block;
     }
   }
