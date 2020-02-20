@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Navigation.scss";
 import Logo from "./../logo.jpg";
@@ -29,6 +29,7 @@ function Navigation(props) {
     );
   }
 
+  console.log();
   return (
     <div className="navigation">
       <div className="logo-box">
@@ -49,24 +50,26 @@ function Navigation(props) {
         {makeLink(4)}
         <hr style={{ width: hr[5] + "%" }} />
       </div>
-      <div className="socials">
-        <a href="https://www.facebook.com/MalgorzataTechner/">
-          <FontAwesomeIcon
-            className="social-icon"
-            icon={["fab", "facebook-square"]}
-            size="2x"
-            style={{ color: "gray" }}
-          />
-        </a>
-        <a href="https://www.instagram.com/notatnik_codzienny/">
-          <FontAwesomeIcon
-            className="social-icon"
-            icon={["fab", "instagram"]}
-            size="2x"
-            style={{ color: "gray" }}
-          />
-        </a>
-      </div>
+      {!useLocation().pathname.includes("/gallery/") && (
+        <div className="socials">
+          <a href="https://www.facebook.com/MalgorzataTechner/">
+            <FontAwesomeIcon
+              className="social-icon"
+              icon={["fab", "facebook-square"]}
+              size="2x"
+              style={{ color: "gray" }}
+            />
+          </a>
+          <a href="https://www.instagram.com/notatnik_codzienny/">
+            <FontAwesomeIcon
+              className="social-icon"
+              icon={["fab", "instagram"]}
+              size="2x"
+              style={{ color: "gray" }}
+            />
+          </a>
+        </div>
+      )}
     </div>
   );
 }

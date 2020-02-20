@@ -19,21 +19,6 @@ export function getPaintings() {
   return paintings;
 }
 
-export const order = {
-  threecolumns: {
-    1: [1, 2, 3],
-    2: [4, 5, 6],
-    3: [7]
-  },
-  twocolumns: {
-    1: [1, 2, 3, 4],
-    2: [5, 6, 7]
-  },
-  onecolumn: {
-    1: [1, 2, 3, 4, 5, 6, 7]
-  }
-};
-
 const paintings = [
   {
     id: 1,
@@ -396,5 +381,18 @@ const paintings = [
     price: null
   }
 ];
+
+export const order = {
+  threecolumns: [
+    [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+    [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+    [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36]
+  ],
+  twocolumns: [
+    [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 2, 5, 8, 11, 14, 17, 20],
+    [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 23, 26, 29, 32, 35]
+  ],
+  onecolumn: [paintings.map(painting => painting.id)]
+};
 
 export default paintings;

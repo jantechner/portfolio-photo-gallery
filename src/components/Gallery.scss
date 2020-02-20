@@ -2,7 +2,25 @@
 
 #gallery {
   margin: $thumbnails-spacing/2;
-  display: inline-block;
+
+  .thumbnails-column {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 33.33%;
+    float: left;
+  }
+
+  @media (max-width: 1350px) {
+    .thumbnails-column {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .thumbnails-column {
+      width: 100%;
+    }
+  }
 }
 
 

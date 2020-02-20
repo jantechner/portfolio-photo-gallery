@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Thumbnail from "./Thumbnail.js";
-import { getPaintings, order } from "../images/paintings";
+import { getPaintings, order, getPaintingById } from "../images/paintings";
 import "./Gallery.scss";
 
 class Gallery extends Component {
@@ -24,14 +24,14 @@ class Gallery extends Component {
 
   updateWindowWidth() {
     this.setState({ width: window.innerWidth });
-    this.updatePaintingsOrder();
+    this.updatePaintingsOrder(window.innerWidth);
   }
 
   updatePaintingsOrder(width) {
     let order;
-    if (this.state.width >= 1200) {
+    if (width >= 1350) {
       order = this.order.threecolumns;
-    } else if (this.state.width >= 600) {
+    } else if (width >= 900) {
       order = this.order.twocolumns;
     } else {
       order = this.order.onecolumn;
@@ -40,13 +40,19 @@ class Gallery extends Component {
   }
 
   render() {
-    const thumbnails = this.paintings.map(painting => (
-      <Thumbnail key={painting.id} {...painting} />
-    ));
     return (
       <div id="gallery">
-        {/* <div>{this.state.width}</div> */}
-        <div id="thumbnails">{thumbnails}</div>
+        {this.state.order &&
+          this.state.order.map((column, index) => (
+            <div key={index} className="thumbnails-column">
+              {column.map(paintingId => (
+                <Thumbnail
+                  key={paintingId}
+                  {...getPaintingById(paintingId.toString())}
+                />
+              ))}
+            </div>
+          ))}
       </div>
     );
   }
