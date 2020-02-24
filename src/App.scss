@@ -6,14 +6,34 @@
 
 .content {
   box-sizing: border-box;
-  position: relative;
   width: 100%;
-  min-height: 100vh;
-  float: left;
+  padding: $site-border-width;
   padding-left: $navigation-width;
+}
 
-  border-style: solid;
-  border-width: $site-border-width;
-  border-color: rgba(0,0,0,0.0) $site-border-color;
+.content:before, .content:after {
+  position: fixed;
+  display: block;
+  content: "";
+  height: 100vh;
+  top: 0;
 
+  z-index: 500;
+
+  background-color: $site-border-color;
+  width: $site-border-width;
+}
+
+.content:before {
+  left: 0;
+}
+
+.content:after {
+  right: 0;
+}
+
+@media (max-width: 700px) {
+  .content {
+    padding-left: 50px;
+  }
 }

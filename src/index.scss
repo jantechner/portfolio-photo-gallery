@@ -33,6 +33,7 @@ body:before, body:after {
   right: 0;
   height: $site-border-width;
   z-index: 500;
+  display: block;
 }
 
 body:before {
