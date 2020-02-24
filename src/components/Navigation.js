@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import NavLinks from "./NavLinks";
+import NavSocials from "./NavSocials";
 import "./Navigation.scss";
 import Logo from "./../logo.jpg";
 
-const hrLenght = { initial: 30, unfolded: 70 };
 const elements = [
   { to: "/gallery", text: "OBRAZY" },
   { to: "/products", text: "SKLEP" },
@@ -14,107 +14,53 @@ const elements = [
 ];
 
 function Navigation(props) {
-  const [hr, resetHr, unfoldHr] = useHrManager(
-    Array(elements.length + 1).fill(hrLenght.initial)
+  const [isMobile, setMobile] = useState(
+    window.innerWidth < 700 ? true : false
   );
-  const [drawerOpen, toggleDrawer] = useState(
-    window.innerWidth > 700 ? true : false
-  );
+  const [drawerOpen, toggleDrawer] = useState(isMobile ? false : true);
 
   useEffect(() => {
     function handleResize() {
-      toggleDrawer(window.innerWidth > 700 ? true : false);
+      setMobile(window.innerWidth < 700 ? true : false);
+      toggleDrawer(window.innerWidth < 700 ? false : true);
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  function makeLink(index) {
-    return (
-      <Link
-        to={elements[index].to}
-        className="item"
-        onMouseEnter={() => unfoldHr([index, index + 1])}
-        onMouseLeave={() => resetHr()}
-        onClick={() => toggleDrawer(!drawerOpen)}
-      >
-        {elements[index].text}
-      </Link>
-    );
-  }
-
   return (
     <nav>
+      {/* MOBILE TOOLBAR */}
       <div className="mobile-toolbar">
         <button
-          className="drawerButton"
+          className="drawer-button"
           onClick={() => toggleDrawer(!drawerOpen)}
         >
-          open drawer
+          <div className="button-line"></div>
+          <div className="button-line"></div>
+          <div className="button-line"></div>
         </button>
       </div>
-      <div
-        className="navigation"
-        style={{ left: drawerOpen ? "0px" : "-280px" }}
-      >
+
+      <div className={drawerOpen ? "navigation" : "navigation closed"}>
         <div className="logo-box">
           <Link to={elements[0].to}>
             <img className="logo" src={Logo} alt="Logo" />
           </Link>
         </div>
-        <div className="links">
-          <hr style={{ width: hr[0] + "%" }} />
-          {makeLink(0)}
-          <hr style={{ width: hr[1] + "%" }} />
-          {makeLink(1)}
-          <hr style={{ width: hr[2] + "%" }} />
-          {makeLink(2)}
-          <hr style={{ width: hr[3] + "%" }} />
-          {makeLink(3)}
-          <hr style={{ width: hr[4] + "%" }} />
-          {makeLink(4)}
-          <hr style={{ width: hr[5] + "%" }} />
-        </div>
-        {!useLocation().pathname.includes("/gallery/") && (
-          <div className="socials">
-            <a href="https://www.facebook.com/MalgorzataTechner/">
-              <FontAwesomeIcon
-                className="social-icon"
-                icon={["fab", "facebook-square"]}
-                size="2x"
-                style={{ color: "gray" }}
-              />
-            </a>
-            <a href="https://www.instagram.com/notatnik_codzienny/">
-              <FontAwesomeIcon
-                className="social-icon"
-                icon={["fab", "instagram"]}
-                size="2x"
-                style={{ color: "gray" }}
-              />
-            </a>
-          </div>
-        )}
+
+        <NavLinks
+          links={elements}
+          toggle={() => toggleDrawer(isMobile ? !drawerOpen : true)}
+          isMobile={isMobile}
+        />
+        <NavSocials />
       </div>
+      {isMobile && drawerOpen && (
+        <div className="backdrop" onClick={() => toggleDrawer(!drawerOpen)}></div>
+      )}
     </nav>
   );
-}
-
-function useHrManager(initialState) {
-  const [state, setState] = useState(initialState);
-
-  function resetHr() {
-    const nextState = Array(initialState.length).fill(hrLenght.initial);
-    setState(nextState);
-  }
-
-  function unfoldHr(array) {
-    let nextState = Array(initialState.length).fill(hrLenght.initial);
-    array.map(index => (nextState[index] = hrLenght.unfolded));
-    setState(nextState);
-  }
-
-  return [state, resetHr, unfoldHr];
 }
 
 export default Navigation;
