@@ -13,7 +13,8 @@
   max-width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  padding: 20px 0 20px 20px;
+  padding: $site-border-width;
+  padding-right: 0 !important;
   z-index: 400;
   transform: translateX(0);
   transition: transform 0.3s ease;
@@ -21,6 +22,10 @@
 
   &.closed {
     transform: translateX(-100%);
+  }
+
+  @media (max-width: 700px) {
+    padding: $mobile-site-border-width;
   }
 
   .logo-box {
@@ -93,11 +98,15 @@
   position: fixed;
   display: none;
   height: 30px;
-  padding: 20px 0px;
+  padding: 10px 0px;
   left: 0;
   right: 0;
-  margin: 20px;
-  // background-color: lightblue;
+  margin: $site-border-width;
+
+  @media (max-width: 700px) {
+    display: block;
+    margin: $mobile-site-border-width;
+  }
 
   .drawer-button {
     display: block;
@@ -115,7 +124,5 @@
     }
   }
 
-  @media (max-width: 700px) {
-    display: block;
-  }
+  
 }

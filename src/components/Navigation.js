@@ -56,6 +56,7 @@ function Navigation(props) {
         />
         <NavSocials />
       </div>
+      
       {isMobile && drawerOpen && (
         <div className="backdrop" onClick={() => toggleDrawer(!drawerOpen)}></div>
       )}

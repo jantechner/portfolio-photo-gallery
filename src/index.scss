@@ -34,6 +34,10 @@ body:before, body:after {
   height: $site-border-width;
   z-index: 500;
   display: block;
+
+  @media (max-width: 700px) {
+    height: $mobile-site-border-width;
+  }
 }
 
 body:before {
