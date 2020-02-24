@@ -4,16 +4,19 @@
   height: 100vh;
   box-sizing: border-box;
   width: $navigation-width;
-  float: left;
+
   position: fixed;
   margin: 20px 0 0 20px;
   z-index: 400;
+  transition: left 0.3s ease;
+
+  background-color: white;
 
   .logo-box {
     box-sizing: border-box;
     width: 100%;
     padding: $thumbnails-spacing $site-border-width 0 $thumbnails-spacing;
-    
+
     .logo {
       display: block;
       border: 1px solid rgba(0, 0, 0, 0.2);
@@ -60,5 +63,29 @@
     .social-icon:hover {
       transform: scale(1.2);
     }
+  }
+}
+
+.mobile-toolbar {
+  z-index: 410;
+  position: fixed;
+  display: none;
+  height: 20px;
+  left: 0;
+  right: 0;
+  margin: 20px;
+  background-color: red;
+}
+
+@media (max-width: 700px) {
+  .navigation {
+    left: -$navigation-width;
+    .logo-box {
+      display: none;
+    }
+  }
+
+  .mobile-toolbar {
+    display: block;
   }
 }

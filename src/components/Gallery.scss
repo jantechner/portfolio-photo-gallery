@@ -1,13 +1,14 @@
 @import "variables";
 
 #gallery {
-  margin: $thumbnails-spacing/2;
+  padding: $thumbnails-spacing/2;
 
   .thumbnails-column {
     box-sizing: border-box;
-    height: 100vh;
+    height: 100%;
     width: 33.33%;
-    float: left;
+    display: inline-block;
+    vertical-align: top;
   }
 
   @media (max-width: 1350px) {
