@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function NavSocials(props) {
-  if (!useLocation().pathname.includes("/gallery/")) {
+  if (!useLocation().pathname.includes("/gallery/") || props.isMobile) {
     return (
       <div className="socials">
         <a href="https://www.facebook.com/MalgorzataTechner/">

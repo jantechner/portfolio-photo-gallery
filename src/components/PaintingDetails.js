@@ -43,12 +43,12 @@ class PaintingDetails extends Component {
           </div>
 
           <div className="image-navigation-wrapper">
-            <div className="painting-link">
+            <div className="painting-link left-arrow">
               {this.painting.id !== this.painting.previous &&
                 <Arrow id={this.painting.previous} direction="left" />}
             </div>
-            <img src={this.painting.image} alt={this.painting.title} />
-            <div className="painting-link">
+            <img className="image" src={this.painting.image} alt={this.painting.title} />
+            <div className="painting-link right-arrow">
               {this.painting.id !== this.painting.next &&
                 <Arrow id={this.painting.next} direction="right" />}
             </div>
