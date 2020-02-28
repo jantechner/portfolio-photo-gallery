@@ -1,56 +1,59 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getPaintingById, getAdjacentPaintingsId } from "./../images/paintings/paintings";
+// import { getPaintingById, getAdjacentPaintingsId } from "./../images/paintings/paintings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./PaintingDetails.scss";
 
 class PaintingDetails extends Component {
   constructor(props) {
     super(props);
-    const paintingId = this.props.match.params.paintingId;
-    this.painting = this.fetchPainting(paintingId);
-    this.state = { paintingId: paintingId };
+    const id = this.props.match.params.id;
+    this.object = this.fetchObject(this.props.get, this.props.adj, id);
+    this.state = { paintingId: id };
   }
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.match.params.paintingId !== prevProps.match.params.paintingId
+      this.props.match.params.id !== prevProps.match.params.id
     ) {
-      const paintingId = this.props.match.params.paintingId;
-      this.painting = this.fetchPainting(paintingId);
-      this.setState({ paintingId: paintingId });
+      const id = this.props.match.params.id;
+      this.object = this.fetchObject(this.props.get, this.props.adj, id);
+      this.setState({ paintingId: id });
     }
   }
 
-  fetchPainting(id) {
+  fetchObject(get, adj, id) {
     return {
-      ...getPaintingById(id),
-      ...getAdjacentPaintingsId(id)
+      ...get(id),
+      ...adj(id)
     };
   }
 
   render() {
-    if (!this.painting.valid) {
+    if (!this.object.valid) {
       return <h1>No such painting</h1>;
     } else {
       return (
         <div className="painting-details">
+
+        {this.object.size && 
           <div className="description">
-            <span>{`"${this.painting.title}"`}</span>
-            <span>{this.painting.size[0] + "x" + this.painting.size[1]}</span>
-            <span>{this.painting.technique}</span>
-            <span>{this.painting.year}</span>
+            <span>{`"${this.object.title}"`}</span>
+            <span>{this.object.size[0] + "x" + this.object.size[1]}</span>
+            <span>{this.object.technique}</span>
+            <span>{this.object.year}</span>
           </div>
+        }
 
           <div className="image-navigation-wrapper">
             <div className="painting-link left-arrow">
-              {this.painting.id !== this.painting.previous &&
-                <Arrow id={this.painting.previous} direction="left" />}
+              {this.object.id !== this.object.previous &&
+                <Arrow id={this.object.previous} direction="left" />}
             </div>
-            <img className="image" src={this.painting.image72} alt={this.painting.title} />
+            <img className="image" src={this.object.image300} alt={this.object.title} />
             <div className="painting-link right-arrow">
-              {this.painting.id !== this.painting.next &&
-                <Arrow id={this.painting.next} direction="right" />}
+              {this.object.id !== this.object.next &&
+                <Arrow id={this.object.next} direction="right" />}
             </div>
           </div>
         </div>
