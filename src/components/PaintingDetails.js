@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { getPaintingById, getAdjacentPaintingsId } from "./../images/paintings";
+import { getPaintingById, getAdjacentPaintingsId } from "./../images/paintings/paintings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./PaintingDetails.scss";
 
@@ -47,7 +47,7 @@ class PaintingDetails extends Component {
               {this.painting.id !== this.painting.previous &&
                 <Arrow id={this.painting.previous} direction="left" />}
             </div>
-            <img className="image" src={this.painting.image} alt={this.painting.title} />
+            <img className="image" src={this.painting.image72} alt={this.painting.title} />
             <div className="painting-link right-arrow">
               {this.painting.id !== this.painting.next &&
                 <Arrow id={this.painting.next} direction="right" />}

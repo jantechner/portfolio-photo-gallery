@@ -1,61 +1,46 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Thumbnail from "./Thumbnail.js";
-import { getPaintings, order, getPaintingById } from "../images/paintings";
+// import { getPaintingById, getOrder } from "../images/paintings/paintings";
 import "./Gallery.scss";
 
-class Gallery extends Component {
-  constructor(props) {
-    super(props);
-    this.paintings = getPaintings();
-    this.order = order;
-    this.state = { windowWidth: 0, order: null };
-    this.updateWindowWidth = this.updateWindowWidth.bind(this);
-    this.updatePaintingsOrder = this.updatePaintingsOrder.bind(this);
+function getById(objects, id) {
+  const object = objects.find(o => o.id.toString() === id);
+  if (!object) {
+    return { valid: false };
+  } else {
+    return { valid: true, ...object };
   }
+}
 
-  componentDidMount() {
-    this.updateWindowWidth();
-    window.addEventListener("resize", this.updateWindowWidth);
-  }
+function Gallery(props) {
+  const [order, setOrder] = useState(null);
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowWidth);
-  }
-
-  updateWindowWidth() {
-    this.setState({ width: window.innerWidth });
-    this.updatePaintingsOrder(window.innerWidth);
-  }
-
-  updatePaintingsOrder(width) {
-    let order;
-    if (width >= 1350) {
-      order = this.order.threecolumns;
-    } else if (width >= 900) {
-      order = this.order.twocolumns;
-    } else {
-      order = this.order.onecolumn;
+  useEffect(() => {
+    function updateOrder() {
+      const width = window.innerWidth;
+      const newOrder = props.orderFunction(width >= 1350 ? 3 : width >= 900 ? 2 : 1);
+      setOrder(newOrder);
     }
-    this.setState({ order: order });
-  }
+    updateOrder();
+    window.addEventListener("resize", updateOrder);
+    return () => window.removeEventListener("resize", updateOrder);
+  }, [props]);
 
-  render() {
-    return (
-      <div id="gallery">
-        {this.state.order &&
-          this.state.order.map((column, index) => (
-            <div key={index} className="thumbnails-column">
-              {column.map(paintingId => (
-                <Thumbnail
-                  key={paintingId}
-                  {...getPaintingById(paintingId.toString())}
-                />
-              ))}
-            </div>
-          ))}
-      </div>
-    );
-  }
+  return (
+    <div id="gallery">
+      {order &&
+        order.map((column, index) => (
+          <div key={index} className="thumbnails-column">
+            {column.map(objectId => (
+              <Thumbnail
+                key={objectId}
+                {...getById(props.objects, objectId.toString())}
+              />
+            ))}
+          </div>
+        ))}
+    </div>
+  );
 }
 
 export default Gallery;
