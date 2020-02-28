@@ -2,13 +2,13 @@ import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import "./Thumbnail.scss";
 
-function Thumbnail(painting) {
+function Thumbnail(image) {
   let match = useRouteMatch();
   return (
     <div className="thumbnail">
-      <Link to={`${match.path}/${painting.id}`}>
+      <Link to={`${match.path}/${image.id}`}>
         <div className="image-box">
-          <img src={painting.image} alt={painting.title} />
+          <img src={image.image72} alt={image.title} />
         </div>
       </Link>
     </div>
