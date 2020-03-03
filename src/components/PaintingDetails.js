@@ -34,10 +34,15 @@ class PaintingDetails extends Component {
         <div className="painting-details">
           {this.object.size && (
             <div className="description">
-              <span>{`"${this.object.title}"`}</span>
-              <span>{this.object.size[0] + "x" + this.object.size[1]}</span>
-              <span>{this.object.technique}</span>
-              <span>{this.object.year}</span>
+              <span className="title">{this.object.title}</span>
+              <span>
+                {this.object.size[0] +
+                  "x" +
+                  this.object.size[1] +
+                  ", " +
+                  this.object.technique}
+              </span>
+              <span>{"rok " + this.object.year}</span>
             </div>
           )}
 

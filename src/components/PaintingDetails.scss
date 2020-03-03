@@ -7,7 +7,7 @@ $description-height: 10vh;
 
   .description {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     left: 50px;
     height: $description-height;
     z-index: 410;
@@ -21,7 +21,14 @@ $description-height: 10vh;
       font-size: 20px;
       text-align: start;
       display: block;
+
+      &.title {
+        font-size: 25px;
+        text-decoration: underline;
+      }
     }
+
+    
   }
 
   .image-navigation-wrapper {

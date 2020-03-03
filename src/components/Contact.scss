@@ -1,4 +1,6 @@
 .contact {
+  box-sizing: border-box;
+  width: 100%;
   padding: 25px 25px 0;
   align-items: center;
 
@@ -6,5 +8,25 @@
     $extra-padding: 30px;
     padding: 15px + $extra-padding 20% 0 + $extra-padding;
     font-size: 23px;
+
+    @media (max-width: 1200px) {
+      padding-left: 10%;
+      padding-right: 10%;
+      font-size: 20px;
+    }
+
+    @media (max-width: 900px) {
+      padding: 15px 5% 0;
+      font-size: 18px;
+    }
+
+    @media (max-width: 700px) {
+      padding: 5px 25px 5px;
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    padding: 0;
   }
 }

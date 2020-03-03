@@ -20,6 +20,7 @@
   }
 
   .order-button {
+    z-index: 400;
     position: absolute;
     right: 25px;
     background-color: white;
@@ -28,6 +29,7 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-size: 25px;
     padding: 1px 18px 1px 20px;
+    transition: transform 0.3s ease;
 
     &:before {
       content: "";
@@ -38,6 +40,10 @@
       left: -26px;
       width: 25px;
       background-color: white;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }
