@@ -11,6 +11,7 @@ $description-height: 10vh;
     left: 50px;
     height: $description-height;
     z-index: 410;
+    line-height: 30px;
 
     @media (max-width: 700px) {
       z-index: 100;
@@ -25,6 +26,7 @@ $description-height: 10vh;
       &.title {
         font-size: 25px;
         text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.2);
       }
     }
 

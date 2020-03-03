@@ -29,7 +29,7 @@ function Gallery(props) {
   }, [props]);
 
   return (
-    <div id="gallery">
+    <div className="gallery">
       <SectionHeader {...props} />
       {order &&
         order.map((column, index) => (

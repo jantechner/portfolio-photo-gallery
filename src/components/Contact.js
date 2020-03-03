@@ -9,11 +9,29 @@ function Contact(props) {
   console.log(availablePaintings);
 
   const [wrappedTitle, setWrappedTitle] = useState(
-    window.innerWidth < 420 ? (<div>DOSTĘPNE<br/>OBRAZY</div>) : "DOSTĘPNE OBRAZY"
+    window.innerWidth < 420 ? (
+      <div>
+        DOSTĘPNE
+        <br />
+        OBRAZY
+      </div>
+    ) : (
+      "DOSTĘPNE OBRAZY"
+    )
   );
   useEffect(() => {
     function handleResize() {
-      setWrappedTitle(window.innerWidth < 420 ? (<div>DOSTĘPNE<br/>OBRAZY</div>) : "DOSTĘPNE OBRAZY");
+      setWrappedTitle(
+        window.innerWidth < 420 ? (
+          <div>
+            DOSTĘPNE
+            <br />
+            OBRAZY
+          </div>
+        ) : (
+          "DOSTĘPNE OBRAZY"
+        )
+      );
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -26,9 +44,10 @@ function Contact(props) {
         <div className="contact-content">
           Witam Cię na mojej stronie! <br />
           <br />
-          Moje prace nabierają najpiękniejszych kolorów, gdy są wykonywane na
-          indywidualne zamówienie. Możesz wybrać obraz, ręcznie malowaną
-          koszylkę, zaproszenie lub inne produkty. <br />
+          Moje prace nabierają najpiękniejszych kolorów, <br />
+          gdy są wykonywane na indywidualne zamówienie. <br />
+          Możesz wybrać obraz, ręcznie malowaną koszulkę, <br/>
+          zaproszenie lub inne produkty. <br />
           <br />
           Zamów pisząc na adres:
           <br />
@@ -36,11 +55,12 @@ function Contact(props) {
           lub wejdź na stronę 
           <br />
           <a href="https://www.facebook.com/MalgorzataTechner/">
-            <b>facebook.com/MalgorzataTechner/</b>
+            <b>facebook.com/MalgorzataTechner</b>
           </a>
           <br />
           <br />
-          Jeśli wolisz, możesz też wybrać spośród gotowych już prac.
+          Jeśli wolisz, możesz też wybrać spośród <br />
+          gotowych prac.
         </div>
       </div>
       <Gallery

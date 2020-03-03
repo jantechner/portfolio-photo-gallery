@@ -34,9 +34,10 @@ nav {
     padding: $thumbnails-spacing $site-border-width 0 $thumbnails-spacing;
 
     .logo {
+      object-fit: cover;
       display: block;
       border: 1px solid rgba(0, 0, 0, 0.2);
-      width: 100%;
+      width: 192px;
       height: auto;
     }
 

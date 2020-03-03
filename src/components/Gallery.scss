@@ -1,6 +1,6 @@
 @import "variables";
 
-#gallery {
+.gallery {
   padding: $thumbnails-spacing/2;
 
   @media (max-width: 700px) {

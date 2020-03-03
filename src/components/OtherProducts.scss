@@ -1,4 +1,48 @@
+@import "./variables";
+
 .other-products {
-  padding: 25px;
-  align-items: center;
+  position: fixed;
+  background-color: white;
+  z-index: 360;
+  padding: 50px 50px + $site-border-width 25px 25px;
+  right: 0;
+  top: 0;
+
+  .navigation-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 25px;
+    line-height: 50px;
+
+    @media (max-width: 1300px) {
+      font-size: 20px;
+    }
+
+    a.navigation-link {
+      flex: 1;
+      text-decoration: none;
+      color: black;
+      background-color: #f1f2f1;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #d8d9d8;
+      }
+    }
+
+    .bar {
+      background-color: white;
+      width: 5px;
+    }
+  }
+}
+
+.spacer {
+  height: 90px;
+}
+
+.reftag {
+  position: relative;
+  top: -110px;
 }
