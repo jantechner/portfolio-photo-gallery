@@ -1,0 +1,43 @@
+@import "./variables";
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 25px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+
+  .line {
+    @extend %separator;
+    flex-grow: 1;
+  }
+  .text {
+    flex-basis: auto;
+    font-size: 25px;
+    padding: 0 25px;
+  }
+
+  .order-button {
+    position: absolute;
+    right: 25px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 25px;
+    padding: 5px 10px;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -11px;
+      width: 10px;
+      background-color: white;
+    }
+  }
+}

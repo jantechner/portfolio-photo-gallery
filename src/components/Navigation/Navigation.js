@@ -8,9 +8,10 @@ import "./Navigation.scss";
 const elements = [
   { to: "/gallery", text: "OBRAZY" },
   { to: "/tshirts", text: "KOSZULKI" },
+  { to: "/others", text: "INNE" },
   { to: "/about", text: "O MNIE" },
   { to: "/contact", text: "KONTAKT" },
-  { to: "/others", text: "INNE" }
+  { to: "/order", text: "ZAMÓW" }
 ];
 
 function Navigation(props) {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { getPaintingById, getAdjacentPaintingsId } from "./../images/paintings/paintings";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./PaintingDetails.scss";
 
@@ -13,9 +12,7 @@ class PaintingDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      this.props.match.params.id !== prevProps.match.params.id
-    ) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
       const id = this.props.match.params.id;
       this.object = this.fetchObject(this.props.get, this.props.adj, id);
       this.setState({ paintingId: id });
@@ -35,25 +32,30 @@ class PaintingDetails extends Component {
     } else {
       return (
         <div className="painting-details">
-
-        {this.object.size && 
-          <div className="description">
-            <span>{`"${this.object.title}"`}</span>
-            <span>{this.object.size[0] + "x" + this.object.size[1]}</span>
-            <span>{this.object.technique}</span>
-            <span>{this.object.year}</span>
-          </div>
-        }
+          {this.object.size && (
+            <div className="description">
+              <span>{`"${this.object.title}"`}</span>
+              <span>{this.object.size[0] + "x" + this.object.size[1]}</span>
+              <span>{this.object.technique}</span>
+              <span>{this.object.year}</span>
+            </div>
+          )}
 
           <div className="image-navigation-wrapper">
             <div className="painting-link left-arrow">
-              {this.object.id !== this.object.previous &&
-                <Arrow id={this.object.previous} direction="left" />}
+              {this.object.id !== this.object.previous && (
+                <Arrow id={this.object.previous} direction="left" />
+              )}
             </div>
-            <img className="image" src={this.object.image300} alt={this.object.title} />
+            <img
+              className="image"
+              src={this.object.image300}
+              alt={this.object.title}
+            />
             <div className="painting-link right-arrow">
-              {this.object.id !== this.object.next &&
-                <Arrow id={this.object.next} direction="right" />}
+              {this.object.id !== this.object.next && (
+                <Arrow id={this.object.next} direction="right" />
+              )}
             </div>
           </div>
         </div>
@@ -64,14 +66,14 @@ class PaintingDetails extends Component {
 
 function Arrow(props) {
   const icon =
-      props.direction === "left" ? ["fas", "chevron-left"] : ["fas", "chevron-right"];
-    return (
-      <Link to={props.id.toString()}>
-        <FontAwesomeIcon icon={icon} size="2x" style={{ color: "lightgray" }} />
-      </Link>
-    );
+    props.direction === "left"
+      ? ["fas", "chevron-left"]
+      : ["fas", "chevron-right"];
+  return (
+    <Link to={props.id.toString()}>
+      <FontAwesomeIcon icon={icon} size="2x" style={{ color: "lightgray" }} />
+    </Link>
+  );
 }
 
 export default PaintingDetails;
-
-

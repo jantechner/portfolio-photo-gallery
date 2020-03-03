@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
+import Contact from "./components/Contact";
+import OtherProducts from "./components/OtherProducts";
 import Navigation from "./components/Navigation/Navigation";
 import PaintingDetails from "./components/PaintingDetails";
 import {
@@ -35,7 +37,12 @@ function App() {
               exact
               path="/gallery"
               component={() => (
-                <Gallery objects={paintings} orderFunction={getOrder} />
+                <Gallery
+                  objects={paintings}
+                  orderFunction={getOrder}
+                  title="OBRAZY"
+                  orderButton={true}
+                />
               )}
             />
             <Route
@@ -52,7 +59,12 @@ function App() {
               exact
               path="/tshirts"
               component={() => (
-                <Gallery objects={tshirts} orderFunction={getTshirtsOrder} />
+                <Gallery
+                  objects={tshirts}
+                  orderFunction={getTshirtsOrder}
+                  title="KOSZULKI"
+                  orderButton={false}
+                />
               )}
             />
 
@@ -66,7 +78,10 @@ function App() {
                 />
               )}
             />
+            <Route path="/others" component={OtherProducts} />
             <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/order" component={Contact} />
           </Switch>
         </div>
       </div>
