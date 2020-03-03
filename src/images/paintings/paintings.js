@@ -28,7 +28,7 @@ export const paintings = [
     size: [55, 73],
     technique: "olej na płótnie",
     year: 2020,
-    available: false,
+    available: true,
     price: null
   },
   {
@@ -39,7 +39,7 @@ export const paintings = [
     size: [35, 55],
     technique: "olej na płótnie",
     year: 2020,
-    available: false,
+    available: true,
     price: null
   },
   {
@@ -171,7 +171,7 @@ export const paintings = [
     size: [21, 30],
     technique: "olej na płótnie",
     year: 2019,
-    available: false,
+    available: true,
     price: null
   },
   {
@@ -430,6 +430,26 @@ const order = {
   ],
   onecolumn: [paintings.map(painting => painting.id)]
 };
+
+const orderAvailable = {
+  threecolumns: [[1, 2], [14], []],
+  twocolumns: [[1, 2], [14]],
+  onecolumn: [
+    paintings
+      .filter(painting => painting.available)
+      .map(painting => painting.id)
+  ]
+};
+
+export function getOrderAvailable(numberOfColumns) {
+  if (numberOfColumns === 3) {
+    return orderAvailable.threecolumns;
+  } else if (numberOfColumns === 2) {
+    return orderAvailable.twocolumns;
+  } else {
+    return orderAvailable.onecolumn;
+  }
+}
 
 export function getOrder(numberOfColumns) {
   if (numberOfColumns === 3) {

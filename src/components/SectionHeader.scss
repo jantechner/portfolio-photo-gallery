@@ -27,7 +27,7 @@
     color: black;
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-size: 25px;
-    padding: 5px 10px;
+    padding: 1px 18px 1px 20px;
 
     &:before {
       content: "";
@@ -35,8 +35,8 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: -11px;
-      width: 10px;
+      left: -26px;
+      width: 25px;
       background-color: white;
     }
   }

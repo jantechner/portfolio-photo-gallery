@@ -1,4 +1,10 @@
 .contact {
-  padding: 25px;
+  padding: 25px 25px 0;
   align-items: center;
+
+  .contact-content {
+    $extra-padding: 30px;
+    padding: 15px + $extra-padding 20% 0 + $extra-padding;
+    font-size: 23px;
+  }
 }

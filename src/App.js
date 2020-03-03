@@ -63,7 +63,7 @@ function App() {
                   objects={tshirts}
                   orderFunction={getTshirtsOrder}
                   title="KOSZULKI"
-                  orderButton={false}
+                  orderButton={true}
                 />
               )}
             />
