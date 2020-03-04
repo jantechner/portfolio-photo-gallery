@@ -1,6 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import Logo from "./../../logo1.jpg";
+import { Link } from "react-router-dom";
+import Logo from "./../../logosi3.svg";
 
 function NavLogo(props) {
   return (
