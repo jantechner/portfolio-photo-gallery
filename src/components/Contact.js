@@ -1,12 +1,47 @@
 import React, { useState, useEffect } from "react";
-import Gallery from "./Gallery";
+import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
-import { paintings, getOrderAvailable } from "./../images/paintings/paintings";
+import { paintings } from "./../images/paintings/paintings";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Contact.scss";
+import Slider from "react-slick";
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon
+        icon={["fas", "chevron-right"]}
+        size="1x"
+        style={{ color: "lightgray", width: "20px", height: "20px" }}
+      />
+    </div>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon
+        icon={["fas", "chevron-left"]}
+        size="1x"
+        style={{ color: "lightgray", width: "20px", height: "20px" }}
+      />
+    </div>
+  );
+}
 
 function Contact(props) {
   const availablePaintings = paintings.filter(p => p.available);
-  console.log(availablePaintings);
 
   const [wrappedTitle, setWrappedTitle] = useState(
     window.innerWidth < 420 ? (
@@ -37,6 +72,33 @@ function Contact(props) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  var settings = {
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 500,
+    // centerMode: true,
+    variableWidth: true,
+    // mobileFirst: true,
+    respondTo: 'min',
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div>
       <div className="contact">
@@ -46,7 +108,7 @@ function Contact(props) {
           <br />
           Moje prace nabierają najpiękniejszych kolorów, <br />
           gdy są wykonywane na indywidualne zamówienie. <br />
-          Możesz wybrać obraz, ręcznie malowaną koszulkę, <br/>
+          Możesz wybrać obraz, ręcznie malowaną koszulkę, <br />
           zaproszenie lub inne produkty. <br />
           <br />
           Zamów pisząc na adres:
@@ -62,13 +124,23 @@ function Contact(props) {
           Jeśli wolisz, możesz też wybrać spośród <br />
           gotowych prac.
         </div>
+        <SectionHeader title={wrappedTitle} orderButton={false} />
+        <div className="slider-box">
+        <Slider {...settings}>
+          {availablePaintings.map((painting, index) => (
+            <div key={index} className="img-box">
+              <Link to={`gallery/${painting.id}`}>
+                <img src={painting.image72} alt={painting.title} />
+                
+              </Link>
+              <div className="price-box"></div>
+              <div className="price">{painting.price} ZŁ</div>
+            </div>
+          ))}
+        </Slider>
       </div>
-      <Gallery
-        objects={availablePaintings}
-        orderFunction={getOrderAvailable}
-        title={wrappedTitle}
-        orderButton={false}
-      />
+      </div>
+      
     </div>
   );
 }

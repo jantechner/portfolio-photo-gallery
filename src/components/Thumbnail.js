@@ -1,14 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link , useRouteMatch } from "react-router-dom";
 import "./Thumbnail.scss";
 
-function Thumbnail(image) {
-  // let match = useRouteMatch();
+function Thumbnail(props) {
+  let match = useRouteMatch();
+  console.log(match)
   return (
     <div className="thumbnail">
-      <Link to={`gallery/${image.id}`}>
+      <Link to={`${match.path}/${props.id}`}>
         <div className="image-box">
-          <img src={image.image72} alt={image.title} />
+          <img src={props.image72} alt={props.title} />
         </div>
       </Link>
     </div>

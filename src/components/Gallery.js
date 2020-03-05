@@ -19,7 +19,8 @@ function Gallery(props) {
     function updateOrder() {
       const width = window.innerWidth;
       const newOrder = props.orderFunction(
-        width >= 1350 ? 3 : width >= 900 ? 2 : 1
+        // width >= 1350 ? 3 : width >= 900 ? 2 : 1
+        width >= 1350 ? 3 : 2
       );
       setOrder(newOrder);
     }
@@ -38,6 +39,7 @@ function Gallery(props) {
               <Thumbnail
                 key={objectId}
                 {...getById(props.objects, objectId.toString())}
+                showPrice={props.showPrice}
               />
             ))}
           </div>
