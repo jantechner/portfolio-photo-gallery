@@ -13,7 +13,7 @@
   @media (max-width: 700px) {
     padding: $mobile-site-border-width;
     // padding-left: 40px;
-    padding-top: 80px;
+    padding-top: $mobile-site-border-width + $mobile-navbar-height;
   }
 }
 

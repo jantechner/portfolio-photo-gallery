@@ -1,25 +1,13 @@
 @import "variables";
 
 .thumbnail {
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  padding: $thumbnails-spacing/2;
+  padding: $thumbnails-spacing-large/2;
 
   @media (max-width: 1200px) {
-    padding: 20px;
+    padding: $thumbnails-spacing-medium/2;
   }
   @media (max-width: 900px) {
-    padding: 15px;
-  }
-  @media (max-width: 800px) {
-    padding: 10px;
-  }
-  @media (max-width: 700px) {
-    padding: 15px;
-  }
-  @media (max-width: 500px) {
-    padding: 10px;
+    padding: $thumbnails-spacing-small/2;
   }
 
   .image-box {

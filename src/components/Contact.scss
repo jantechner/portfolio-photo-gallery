@@ -107,6 +107,10 @@
         border-top: 40px solid white;
         border-left: 40px solid transparent;
 
+        @media (max-width: 700px) {
+          right: 10px;
+        }
+
         .text {
           font-size: 25px;
           text-align: center;
@@ -114,6 +118,7 @@
           position: absolute;
           top: -40px;
           right: 10px;
+
         }
       }
 

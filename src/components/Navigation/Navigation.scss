@@ -33,7 +33,7 @@ nav {
   .logo-box {
     box-sizing: border-box;
     // width: 100%;
-    padding: $thumbnails-spacing $site-border-width 0 $thumbnails-spacing;
+    padding: $thumbnails-spacing-large $site-border-width 0 $thumbnails-spacing-large;
     height: 30%;
 
     .logo {
@@ -140,7 +140,7 @@ nav {
   position: fixed;
   display: none;
   box-sizing: border-box;
-  height: 60px;
+  height: $mobile-navbar-height;
   padding: 15px 0px;
   left: 0;
   right: 0;
