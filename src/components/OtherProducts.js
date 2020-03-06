@@ -10,11 +10,32 @@ function OtherProducts(props) {
     widthRef.current ? widthRef.current.offsetWidth : 0
   );
 
+  console.log("render");
+
   useEffect(() => {
-    setContentWidth(widthRef.current ? widthRef.current.offsetWidth : 0);
+
+    function calculateWidth() {
+      let width = widthRef.current ? widthRef.current.offsetWidth : 0;
+      if (window.innerWidth > 1200) {
+        width = width - 90
+      } else if (window.innerWidth > 900) {
+        width = width - 80
+      } else if (window.innerWidth > 800) {
+        width = width - 70
+      } else if (window.innerWidth > 700) {
+        width = width - 60
+      } else if (window.innerWidth > 500) {
+        width = width - 20
+      } else {
+        width = width - 16
+      }
+      return width;
+    }
+
+    setContentWidth(calculateWidth());
 
     function handleResize() {
-      setContentWidth(widthRef.current ? widthRef.current.offsetWidth : 0);
+      setContentWidth(calculateWidth());
     }
 
     window.addEventListener("resize", handleResize);
@@ -24,26 +45,30 @@ function OtherProducts(props) {
   return (
     <div>
       <div className="other-products">
-        <div className="navigation-bar" style={{ width: contentWidth - 100 }}>
-          <a href="#posters" className="navigation-link">
-            <div>PLAKATY</div>
-          </a>
-          <div className="bar"></div>
-          <a href="#invitations" className="navigation-link">
-            <div className="navigation-link">ZAPROSZENIA</div>
-          </a>
-          <div className="bar"></div>
-          <a href="#cards" className="navigation-link">
-            <div className="navigation-link">KARTKI</div>
-          </a>
-          <div className="bar"></div>
-          <a href="#bags" className="navigation-link">
-            <div className="navigation-link">TORBY</div>
-          </a>
+        <div className="navigation-bar" style={{ width: contentWidth}}>
+          <div className="link-box">
+            <a href="#posters" className="navigation-link">
+              <div>PLAKATY</div>
+            </a>
+          </div>
+          <div className="link-box">
+            <a href="#invitations" className="navigation-link">
+              <div>ZAPROSZENIA</div>
+            </a>
+          </div>
+          <div className="link-box">
+            <a href="#cards" className="navigation-link">
+              <div className="navigation-link">KARTKI</div>
+            </a>
+          </div>
+          <div className="link-box">
+            <a href="#bags" className="navigation-link">
+              <div className="navigation-link">TORBY</div>
+            </a>
+          </div>
         </div>
       </div>
-      <div className="spacer"></div>
-      <div className="w" ref={widthRef}></div>
+      <div className="spacer" ref={widthRef}></div>
       <div id="posters" className="reftag" />
       <Gallery
         objects={tshirts}

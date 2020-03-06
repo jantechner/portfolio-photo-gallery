@@ -80,7 +80,7 @@ function Contact(props) {
     // centerMode: true,
     variableWidth: true,
     // mobileFirst: true,
-    respondTo: 'min',
+    respondTo: "min",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -126,21 +126,20 @@ function Contact(props) {
         </div>
         <SectionHeader title={wrappedTitle} orderButton={false} />
         <div className="slider-box">
-        <Slider {...settings}>
-          {availablePaintings.map((painting, index) => (
-            <div key={index} className="img-box">
-              <Link to={`gallery/${painting.id}`}>
-                <img src={painting.image72} alt={painting.title} />
-                
-              </Link>
-              <div className="price-box"></div>
-              <div className="price">{painting.price} ZŁ</div>
-            </div>
-          ))}
-        </Slider>
+          <Slider {...settings}>
+            {availablePaintings.map((painting, index) => (
+              <div key={index} className="img-box">
+                <Link to={`gallery/${painting.id}`}>
+                  <img src={painting.image72} alt={painting.title} />
+                </Link>
+                <div className="price-box">
+                  <div className="text">{painting.price} ZŁ</div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }

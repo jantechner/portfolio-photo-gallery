@@ -4,45 +4,108 @@
   position: fixed;
   background-color: white;
   z-index: 360;
-  padding: 70px 50px + $site-border-width 25px 25px;
+  padding: 67px 45px + $site-border-width 25px 25px;
   right: 0;
   top: 0;
+
+  @media (max-width: 1200px) {
+    padding-right: 60px;
+  }
+
+  @media (max-width: 1000px) {
+    padding-bottom: 15px;
+  }
+
+  @media (max-width: 900px) {
+    padding-right: 55px;
+    
+  }
+
+  @media (max-width: 800px) {
+    padding-right: 50px;
+  }
+
+  @media (max-width: 700px) {
+    padding-top: 80px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+  }
+
+  @media (max-width: 500px) {
+    padding-right: 18px;
+  }
 
   .navigation-bar {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 25px;
-    line-height: 50px;
 
     @media (max-width: 1300px) {
       font-size: 20px;
     }
 
-    a.navigation-link {
+    .link-box {
       flex: 1;
-      text-decoration: none;
-      color: black;
-      background-color: #f1f2f1;
-      transition: background-color 0.3s ease;
+      flex-basis: 25%;
+      box-sizing: border-box;
+      padding: 3px;
 
-      &:hover {
-        background-color: #d8d9d8;
+      @media (max-width: 1200px) {
+        flex-basis: 50%;
       }
-    }
 
-    .bar {
-      background-color: white;
-      width: 5px;
+      a.navigation-link {
+        @extend %disable-link;
+
+        div {
+          line-height: 50px;
+          font-size: 25px;
+          background-color: #f1f2f1;
+          transition: background-color 0.3s ease;
+
+          @media (max-width: 850px) {
+            line-height: 50px;
+            font-size: 21px;
+          }
+
+          @media (max-width: 400px) {
+            line-height: 50px;
+            font-size: 18px;
+          }
+
+          &:hover {
+            background-color: #d8d9d8;
+          }
+        }
+      }
     }
   }
 }
 
 .spacer {
   height: 100px;
+  @media (max-width: 1200px) {
+    height: 155px;
+  }
+  @media (max-width: 1000px) {
+    height: 135px;
+  }
+
+  @media (max-width: 700px) {
+    height: 110px;
+  }
 }
 
 .reftag {
   position: relative;
   top: -120px;
+  @media (max-width: 1200px) {
+    top: -175px;
+  }
+  @media (max-width: 1000px) {
+    top: -155px;
+  }
+  @media (max-width: 700px) {
+    top: -190px;
+  }
 }

@@ -1,13 +1,29 @@
 @import "./variables";
 
 .section-header {
+  
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px 25px;
-  box-sizing: border-box;
-  width: 100%;
   position: relative;
+  padding: 10px 0;
+  margin: 0 25px;
+  
+  @media (max-width: 1200px) {
+    margin: 0 20px;
+  }
+  @media (max-width: 900px) {
+    margin: 0 15px;
+  }
+  @media (max-width: 800px) {
+    margin: 0 10px;
+  }
+  @media (max-width: 700px) {
+    margin: 0 15px;
+  }
+  @media (max-width: 500px) {
+    margin: 0 10px;
+  }
 
   .line {
     @extend %separator;
@@ -19,10 +35,19 @@
     padding: 0 25px;
   }
 
+  // @media (max-width: 600px) {
+  //   .line:first-child {
+  //     display: none;
+  //   }
+  //   .text {
+  //     padding-left: 10px;
+  //   }
+  // }
+
   .order-button {
     z-index: 350;
     position: absolute;
-    right: 25px;
+    right: 0px;
     background-color: white;
     text-decoration: none;
     color: black;
@@ -30,6 +55,10 @@
     font-size: 25px;
     padding: 1px 18px 1px 20px;
     transition: transform 0.3s ease;
+
+    @media (max-width: 1000px) {
+      display: none;
+    }
 
     &:before {
       content: "";

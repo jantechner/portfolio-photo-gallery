@@ -5,6 +5,11 @@ $thumbnails-spacing: 50px;
 $navigation-width: 280px;
 
 %separator {
-    background-color: rgba(0, 0, 0, 0.2);
-    height: 1px;
-  }
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 1px;
+}
+
+%disable-link {
+  color: black;
+  text-decoration: none;
+}

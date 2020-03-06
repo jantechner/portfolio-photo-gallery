@@ -10,7 +10,7 @@ function SectionHeader(props) {
         <div className="text">{props.title}</div>
         <div className="line"></div>
         {props.orderButton && (
-          <Link to="/order" className="order-button">
+          <Link to="/contact" className="order-button">
             ZAMÓW
           </Link>
         )}

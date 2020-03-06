@@ -4,7 +4,6 @@ import "./Thumbnail.scss";
 
 function Thumbnail(props) {
   let match = useRouteMatch();
-  console.log(match)
   return (
     <div className="thumbnail">
       <Link to={`${match.path}/${props.id}`}>

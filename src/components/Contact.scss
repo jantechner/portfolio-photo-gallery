@@ -100,20 +100,21 @@
       }
 
       .price-box {
-        width: 150px;
-        height: 40px;
+        width: 100px;
         position: absolute;
-        bottom: 30px;
-        right: 0px;
-        background-color: white;
-        transform: skew(-30deg);
-      }
+        bottom: 40px;
+        right: 15px;
+        border-top: 40px solid white;
+        border-left: 40px solid transparent;
 
-      .price {
-        position: absolute;
-        bottom: 34px;
-        right: 30px;
-        font-size: 25px;
+        .text {
+          font-size: 25px;
+          text-align: center;
+          line-height: 40px;
+          position: absolute;
+          top: -40px;
+          right: 10px;
+        }
       }
 
       img {

@@ -22,7 +22,7 @@ function NavLink(props) {
             }
       }
     >
-      {props.link.text}
+      <div className="link-text">{props.link.text}</div>
     </Link>
   );
 }
