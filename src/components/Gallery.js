@@ -32,7 +32,8 @@ function Gallery(props) {
   return (
     <div className="gallery">
       <SectionHeader {...props} />
-      {order &&
+      {!props.inProgress &&
+        order &&
         order.map((column, index) => (
           <div key={index} className="thumbnails-column">
             {column.map(objectId => (
@@ -44,6 +45,7 @@ function Gallery(props) {
             ))}
           </div>
         ))}
+      {props.inProgress && <div className="inprogress-info">Podstrona w budowie</div>}
     </div>
   );
 }
