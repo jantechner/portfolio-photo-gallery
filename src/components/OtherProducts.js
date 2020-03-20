@@ -3,25 +3,26 @@ import Gallery from "./Gallery";
 import { tshirts, getTshirtsOrder } from "./../images/tshirts/tshirts";
 import "./OtherProducts.scss";
 
-const links = [
-  { title: "WYSTAWY", href: "#posters" },
-  { title: "ILUSTRACJE", href: "#invitations" },
-  { title: "PROJEKTY", href: "#cards" },
-  { title: "NOTATNIK", href: "#bags" }
-];
-
 const products = [
   {
-    title: "WYSTAWY",
-    id: "posters",
+    title: "KOSZULKI",
+    id: "tshirts",
+    objects: tshirts,
+    orderFunction: getTshirtsOrder,
+    orderButton: true,
+    inProgress: false
+  },
+  {
+    title: "KSIĄŻKI",
+    id: "books",
     objects: tshirts,
     orderFunction: getTshirtsOrder,
     orderButton: false,
     inProgress: true
   },
   {
-    title: "ILUSTRACJE",
-    id: "invitations",
+    title: "WYSTAWY",
+    id: "exhibitions",
     objects: tshirts,
     orderFunction: getTshirtsOrder,
     orderButton: false,
@@ -29,15 +30,7 @@ const products = [
   },
   {
     title: "PROJEKTY",
-    id: "cards",
-    objects: tshirts,
-    orderFunction: getTshirtsOrder,
-    orderButton: false,
-    inProgress: true
-  },
-  {
-    title: "NOTATNIK",
-    id: "bags",
+    id: "projects",
     objects: tshirts,
     orderFunction: getTshirtsOrder,
     orderButton: false,
@@ -49,10 +42,10 @@ function OtherProducts(props) {
   return (
     <div>
       <div className="navigation-bar">
-        {links.map((link, index) => (
+        {products.map((product, index) => (
           <div key={index} className="link-box">
-            <a href={link.href} className="navigation-link">
-              <div>{link.title}</div>
+            <a href={`#${product.id}`} className="navigation-link">
+              <div>{product.title}</div>
             </a>
           </div>
         ))}

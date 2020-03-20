@@ -143,6 +143,14 @@ export const tshirts = [
     year: 2020,
     available: false,
     price: null
+  },
+  {
+    id: 17,
+    image72: require("./72dpi/piernik72.jpg").default,
+    image300: require("./72dpi/piernik72.jpg").default,
+    year: 2020,
+    available: false,
+    price: null
   }
 ];
 
@@ -150,11 +158,11 @@ const tshirtsOrder = {
   threecolumns: [
     [13, 4, 5, 2, 3],
     [16, 7, 9, 15, 12, 10],
-    [8, 1, 14, 6, 11]
+    [17, 8, 1, 14, 6, 11]
   ],
   twocolumns: [
     [1, 2, 3, 4, 5, 6, 7, 8],
-    [9, 10, 11, 12, 13, 14, 15, 16]
+    [17, 9, 10, 11, 12, 13, 14, 15, 16]
   ],
   onecolumn: [tshirts.map(tshirt => tshirt.id)]
 };

@@ -246,7 +246,7 @@ export const paintings = [
     image300: require("./300dpi/lato300.jpg").default,
     title: "Lato",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "tempera na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -268,7 +268,7 @@ export const paintings = [
     image300: require("./300dpi/baletnica-przed-wystepem300.jpg").default,
     title: "Batelnica przed występem",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "olej na kartonie",
     year: 2016,
     available: false,
     price: null
@@ -290,7 +290,7 @@ export const paintings = [
     image300: require("./300dpi/primabalerina300.jpg").default,
     title: "Primabalerina",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "tempera, pastel na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -323,7 +323,7 @@ export const paintings = [
     image300: require("./300dpi/strach-na-wroble300.jpg").default,
     title: "Strach na wróble",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "tempera na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -334,7 +334,7 @@ export const paintings = [
     image300: require("./300dpi/pani-wiosna300.jpg").default,
     title: "Pani wiosna",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "tempera na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -345,7 +345,7 @@ export const paintings = [
     image300: require("./300dpi/tancerz300.jpg").default,
     title: "Tancerz",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "tempera na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -356,7 +356,7 @@ export const paintings = [
     image300: require("./300dpi/tatrzanskie-widoki300.jpg").default,
     title: "Tatrzańskie widoki",
     size: [50, 70],
-    technique: "olej na płótnie",
+    technique: "akryl na kartonie",
     year: 2015,
     available: false,
     price: null
@@ -367,7 +367,7 @@ export const paintings = [
     image300: require("./300dpi/w-nieznane300.jpg").default,
     title: "W nieznane",
     size: [40, 50],
-    technique: "olej na płótnie",
+    technique: "akryl na płótnie",
     year: 2015,
     available: false,
     price: null
@@ -378,7 +378,7 @@ export const paintings = [
     image300: require("./300dpi/uliczka-zalana-sloncem300.jpg").default,
     title: "Uliczka zalana słońcem",
     size: [70, 100],
-    technique: "olej na płótnie",
+    technique: "olej na kartonie",
     year: 2016,
     available: false,
     price: null
@@ -401,7 +401,7 @@ export const paintings = [
     title: "Św. Jacek Odrowąż",
     size: [60, 80],
     technique: "olej na płótnie",
-    year: 2015,
+    year: 2016,
     available: false,
     price: null
   },
