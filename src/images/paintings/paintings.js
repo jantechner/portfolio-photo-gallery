@@ -39,7 +39,7 @@ export const paintings = [
     size: [35, 55],
     technique: "olej na płótnie",
     year: 2020,
-    available: true,
+    available: false,
     price: 1200
   },
   {
@@ -127,7 +127,7 @@ export const paintings = [
     size: [40, 60],
     technique: "olej na płótnie",
     year: 2016,
-    available: true,
+    available: false,
     price: 340
   },
   {
@@ -138,7 +138,7 @@ export const paintings = [
     size: [50, 60],
     technique: "olej na płótnie",
     year: 2019,
-    available: true,
+    available: false,
     price: 1234
   },
   {
@@ -160,7 +160,7 @@ export const paintings = [
     size: [43, 55],
     technique: "olej na płótnie",
     year: 2019,
-    available: true,
+    available: false,
     price: 400
   },
   {
@@ -171,7 +171,7 @@ export const paintings = [
     size: [21, 30],
     technique: "olej na płótnie",
     year: 2019,
-    available: true,
+    available: false,
     price: 500
   },
   {
@@ -248,7 +248,7 @@ export const paintings = [
     size: [70, 100],
     technique: "tempera na kartonie",
     year: 2015,
-    available: false,
+    available: true,
     price: null
   },
   {
@@ -336,7 +336,7 @@ export const paintings = [
     size: [70, 100],
     technique: "tempera na kartonie",
     year: 2015,
-    available: false,
+    available: true,
     price: null
   },
   {
@@ -347,7 +347,7 @@ export const paintings = [
     size: [70, 100],
     technique: "tempera na kartonie",
     year: 2015,
-    available: false,
+    available: true,
     price: null
   },
   {

@@ -132,9 +132,9 @@ function Contact(props) {
                 <Link to={`gallery/${painting.id}`}>
                   <img src={painting.image72} alt={painting.title} />
                 </Link>
-                <div className="price-box">
+                {/* <div className="price-box">
                   <div className="text">{painting.price} ZŁ</div>
-                </div>
+                </div> */}
               </div>
             ))}
           </Slider>

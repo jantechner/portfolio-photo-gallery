@@ -54,7 +54,7 @@ class PaintingDetails extends Component {
             </div>
             <img
               className="image"
-              src={this.object.image72}
+              src={this.object.image300}
               alt={this.object.title}
             />
             <div className="painting-link right-arrow">

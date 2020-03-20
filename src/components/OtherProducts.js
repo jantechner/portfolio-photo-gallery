@@ -1,6 +1,9 @@
 import React from "react";
 import Gallery from "./Gallery";
 import { tshirts, getTshirtsOrder } from "./../images/tshirts/tshirts";
+import { exhibitions, getExhibitionsOrder } from "./../images/exhibitions/exhibitions";
+import { projects, getProjectsOrder } from "./../images/projects/projects";
+import { books, getBooksOrder } from "./../images/books/books";
 import "./OtherProducts.scss";
 
 const products = [
@@ -10,31 +13,35 @@ const products = [
     objects: tshirts,
     orderFunction: getTshirtsOrder,
     orderButton: true,
-    inProgress: false
+    inProgress: false,
+    path: "/tshirts"
   },
   {
     title: "KSIĄŻKI",
     id: "books",
-    objects: tshirts,
-    orderFunction: getTshirtsOrder,
+    objects: books,
+    orderFunction: getBooksOrder,
     orderButton: false,
-    inProgress: true
+    inProgress: false,
+    path: "/books"
   },
   {
     title: "WYSTAWY",
     id: "exhibitions",
-    objects: tshirts,
-    orderFunction: getTshirtsOrder,
+    objects: exhibitions,
+    orderFunction: getExhibitionsOrder,
     orderButton: false,
-    inProgress: true
+    inProgress: false,
+    path: "/exhibitions"
   },
   {
     title: "PROJEKTY",
     id: "projects",
-    objects: tshirts,
-    orderFunction: getTshirtsOrder,
+    objects: projects,
+    orderFunction: getProjectsOrder,
     orderButton: false,
-    inProgress: true
+    inProgress: true,
+    path: "/projects"
   }
 ];
 
@@ -53,7 +60,7 @@ function OtherProducts(props) {
       {products.map((product, index) => (
         <div key={index}>
           <div id={product.id} className="reftag" />
-          <Gallery {...product} orderButton={product.orderButton} inProgress={product.inProgress}/>
+          <Gallery {...product} orderButton={product.orderButton} inProgress={product.inProgress} path={product.path}/>
         </div>
       ))}
     </div>

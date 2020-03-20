@@ -41,6 +41,7 @@ function Gallery(props) {
                 key={objectId}
                 {...getById(props.objects, objectId.toString())}
                 showPrice={props.showPrice}
+                path={props.path}
               />
             ))}
           </div>

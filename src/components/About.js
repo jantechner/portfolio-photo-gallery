@@ -11,7 +11,7 @@ function About(props) {
   return (
     <div className="about">
       <SectionHeader title="O MNIE" orderButton={false}/>
-
+      {/* <div style={{height: 20}}></div> */}
       <img src={AboutImage1} alt={"O mnie - zdjęcie 1"} />
       <div className="description">
         Jestem studentką architektury na Uniwersytecie Artystycznym w Poznaniu,
@@ -35,6 +35,9 @@ function About(props) {
       <img src={AboutImage3} alt={"O mnie - zdjęcie 3"} />
       <img src={AboutImage4} alt={"O mnie - zdjęcie 4"} />
       <img src={AboutImage5} alt={"O mnie - zdjęcie 5"} />
+      <div className="description">
+        Dziękuję Wam za odwiedziny. Mam nadzieję, że pozostaniecie ze mną dłużej :)
+      </div>
     </div>
   );
 }

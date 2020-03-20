@@ -18,11 +18,18 @@ import {
   getAdjacentPaintingsId
 } from "./images/paintings/paintings";
 import {
-  tshirts,
-  getTshirtsOrder,
   getTshirtById,
   getAdjacentTshirtsId
 } from "./images/tshirts/tshirts";
+import {
+  getExhibitionById,
+  getAdjacentExhibitionsId
+} from "./images/exhibitions/exhibitions";
+import {
+  getProjectById,
+  getAdjacentProjectsId
+} from "./images/projects/projects";
+import { getBookById, getAdjacentBooksId } from "./images/books/books";
 import "./App.scss";
 
 function App() {
@@ -55,18 +62,6 @@ function App() {
                 />
               )}
             />
-            <Route
-              exact
-              path="/tshirts"
-              component={() => (
-                <Gallery
-                  objects={tshirts}
-                  orderFunction={getTshirtsOrder}
-                  title="KOSZULKI"
-                  orderButton={true}
-                />
-              )}
-            />
 
             <Route
               path="/tshirts/:id"
@@ -75,6 +70,36 @@ function App() {
                   {...props}
                   get={getTshirtById}
                   adj={getAdjacentTshirtsId}
+                />
+              )}
+            />
+            <Route
+              path="/exhibitions/:id"
+              render={props => (
+                <PaintingDetails
+                  {...props}
+                  get={getExhibitionById}
+                  adj={getAdjacentExhibitionsId}
+                />
+              )}
+            />
+            <Route
+              path="/projects/:id"
+              render={props => (
+                <PaintingDetails
+                  {...props}
+                  get={getProjectById}
+                  adj={getAdjacentProjectsId}
+                />
+              )}
+            />
+            <Route
+              path="/books/:id"
+              render={props => (
+                <PaintingDetails
+                  {...props}
+                  get={getBookById}
+                  adj={getAdjacentBooksId}
                 />
               )}
             />
