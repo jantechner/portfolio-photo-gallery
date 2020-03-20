@@ -17,7 +17,7 @@ const products = [
     path: "/tshirts"
   },
   {
-    title: "ILUSTRACJE",
+    title: "OBRAZKI",
     id: "books",
     objects: books,
     orderFunction: getBooksOrder,
