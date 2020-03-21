@@ -21,53 +21,53 @@ export function getAdjacentExhibitionsId(id) {
 export const exhibitions = [
   {
     id: 1,
-    image72: require("./72dpi/wystawa1.jpg").default,
-    image300: require("./150dpi/wystawa1m.jpg").default,
+    image72: require("./72dpi/wystawa1m.jpg").default,
+    image300: require("./150dpi/wystawa1.jpg").default,
   },
   {
     id: 2,
-    image72: require("./72dpi/wystawa2.jpg").default,
-    image300: require("./150dpi/wystawa2m.jpg").default,
+    image72: require("./72dpi/wystawa2m.jpg").default,
+    image300: require("./150dpi/wystawa2.jpg").default,
   },
   {
     id: 3,
-    image72: require("./72dpi/wystawa3.jpg").default,
-    image300: require("./150dpi/wystawa3m.jpg").default,
+    image72: require("./72dpi/wystawa3m.jpg").default,
+    image300: require("./150dpi/wystawa3.jpg").default,
   },
   {
     id: 4,
-    image72: require("./72dpi/wystawa4.jpg").default,
-    image300: require("./150dpi/wystawa4m.jpg").default,
+    image72: require("./72dpi/wystawa4m.jpg").default,
+    image300: require("./150dpi/wystawa4.jpg").default,
   },
   {
     id: 5,
-    image72: require("./72dpi/wystawa5.jpg").default,
-    image300: require("./150dpi/wystawa5m.jpg").default,
+    image72: require("./72dpi/wystawa5m.jpg").default,
+    image300: require("./150dpi/wystawa5.jpg").default,
   },
   {
     id: 6,
-    image72: require("./72dpi/wystawa6.jpg").default,
-    image300: require("./150dpi/wystawa6m.jpg").default,
+    image72: require("./72dpi/wystawa6m.jpg").default,
+    image300: require("./150dpi/wystawa6.jpg").default,
   },
   {
     id: 7,
-    image72: require("./72dpi/wystawa7.jpg").default,
-    image300: require("./150dpi/wystawa7m.jpg").default,
+    image72: require("./72dpi/wystawa7m.jpg").default,
+    image300: require("./150dpi/wystawa7.jpg").default,
   },
   {
     id: 8,
-    image72: require("./72dpi/wystawa8.jpg").default,
-    image300: require("./150dpi/wystawa8m.jpg").default,
+    image72: require("./72dpi/wystawa8m.jpg").default,
+    image300: require("./150dpi/wystawa8.jpg").default,
   },
   {
     id: 9,
-    image72: require("./72dpi/wystawa9.jpg").default,
-    image300: require("./150dpi/wystawa9m.jpg").default,
+    image72: require("./72dpi/wystawa9m.jpg").default,
+    image300: require("./150dpi/wystawa9.jpg").default,
   },
   {
     id: 10,
-    image72: require("./72dpi/wystawa10.jpg").default,
-    image300: require("./150dpi/wystawa10m.jpg").default,
+    image72: require("./72dpi/wystawa10m.jpg").default,
+    image300: require("./150dpi/wystawa10.jpg").default,
   },
 ];
 
