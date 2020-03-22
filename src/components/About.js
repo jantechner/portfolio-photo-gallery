@@ -28,7 +28,7 @@ function About(props) {
       <div className="description">
         Chciałabym, by oglądający moje obrazy odkrywali piękno
         życia i umieli z wdzięcznością patrzeć na rzeczywistość. Mam nadzieję,
-        że w ten sposób pomnażamy dobro - do tego serdecznie Was zapraszam swoją
+        że w ten sposób pomnażamy dobro - do tego serdecznie zapraszam Was swoją
         twórczością. Oprócz obrazów, znajdziecie też ręcznie malowane koszulki,
         akwarelowe wianki z cytatami i inne personalizowane projekty.
       </div>

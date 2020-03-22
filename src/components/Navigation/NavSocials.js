@@ -15,7 +15,7 @@ function NavSocials(props) {
               style={{ color: "gray" }}
             />
           </a>
-          <a href="https://www.instagram.com/notatnik_codzienny/">
+          <a href="https://www.instagram.com/malgosiatechner/">
             <FontAwesomeIcon
               className="social-icon"
               icon={["fab", "instagram"]}

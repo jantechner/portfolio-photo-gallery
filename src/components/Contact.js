@@ -122,7 +122,7 @@ function Contact(props) {
           <br />
           <br />
           Jeśli wolisz, możesz też wybrać spośród <br />
-          gotowych prac.
+          gotowych prac poniżej:
         </div>
         <SectionHeader title={wrappedTitle} orderButton={false} />
         <div className="slider-box">
