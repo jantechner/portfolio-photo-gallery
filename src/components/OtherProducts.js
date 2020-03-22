@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Gallery from "./Gallery";
 import { tshirts, getTshirtsOrder } from "./../images/tshirts/tshirts";
-import { exhibitions, getExhibitionsOrder } from "./../images/exhibitions/exhibitions";
+import {
+  exhibitions,
+  getExhibitionsOrder
+} from "./../images/exhibitions/exhibitions";
 import { projects, getProjectsOrder } from "./../images/projects/projects";
 import { books, getBooksOrder } from "./../images/books/books";
 import "./OtherProducts.scss";
+import { useLocation } from "react-router-dom";
 
 const products = [
   {
@@ -46,6 +50,12 @@ const products = [
 ];
 
 function OtherProducts(props) {
+  const pathname = useLocation();
+  useEffect(() => {
+    if (pathname.hash === "") {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
   return (
     <div>
       <div className="navigation-bar">
@@ -60,7 +70,12 @@ function OtherProducts(props) {
       {products.map((product, index) => (
         <div key={index}>
           <div id={product.id} className="reftag" />
-          <Gallery {...product} orderButton={product.orderButton} inProgress={product.inProgress} path={product.path}/>
+          <Gallery
+            {...product}
+            orderButton={product.orderButton}
+            inProgress={product.inProgress}
+            path={product.path}
+          />
         </div>
       ))}
     </div>

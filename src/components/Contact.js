@@ -72,6 +72,10 @@ function Contact(props) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   var settings = {
     infinite: false,
     slidesToShow: 3,
