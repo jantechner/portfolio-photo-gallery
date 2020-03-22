@@ -17,10 +17,7 @@ import {
   getPaintingById,
   getAdjacentPaintingsId
 } from "./images/paintings/paintings";
-import {
-  getTshirtById,
-  getAdjacentTshirtsId
-} from "./images/tshirts/tshirts";
+import { getTshirtById, getAdjacentTshirtsId } from "./images/tshirts/tshirts";
 import {
   getExhibitionById,
   getAdjacentExhibitionsId
@@ -31,6 +28,7 @@ import {
 } from "./images/projects/projects";
 import { getBookById, getAdjacentBooksId } from "./images/books/books";
 import "./App.scss";
+import MainGallery from "./components/MainGallery";
 
 function App() {
   return (
@@ -40,7 +38,7 @@ function App() {
         <div className="content">
           <Switch>
             <Redirect exact from="/" to="/gallery" />
-            <Route
+            {/* <Route
               exact
               path="/gallery"
               component={() => (
@@ -51,6 +49,11 @@ function App() {
                   orderButton={true}
                 />
               )}
+            /> */}
+            <Route
+              exact
+              path="/gallery"
+              component={MainGallery}
             />
             <Route
               path="/gallery/:id"
@@ -103,7 +106,7 @@ function App() {
                 />
               )}
             />
-            <Route path="/others" component={OtherProducts} />
+            <Route extact path="/others" component={OtherProducts} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/order" component={Contact} />
