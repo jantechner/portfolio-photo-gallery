@@ -25,7 +25,7 @@ import {
 } from "./images/projects/projects";
 import { getBookById, getAdjacentBooksId } from "./images/books/books";
 import "./App.scss";
-// import MainGallery from "./components/MainGallery";
+import MainGallery from "./components/MainGallery";
 
 function App() {
   return (
