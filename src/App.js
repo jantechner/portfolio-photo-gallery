@@ -5,15 +5,12 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import OtherProducts from "./components/OtherProducts";
 import Navigation from "./components/Navigation/Navigation";
 import PaintingDetails from "./components/PaintingDetails";
 import {
-  paintings,
-  getOrder,
   getPaintingById,
   getAdjacentPaintingsId
 } from "./images/paintings/paintings";
