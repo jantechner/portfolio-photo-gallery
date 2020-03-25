@@ -33,12 +33,27 @@ export function getProjectById(id) {
       id: 3,
       image72: require("./krzeslo.jpg").default,
       image300: require("./krzeslo.jpg").default,
+    },
+    {
+      id: 4,
+      image72: require("./rekreacja.jpg").default,
+      image300: require("./rekreacja.jpg").default,
+    },
+    {
+      id: 5,
+      image72: require("./biurowiec.jpg").default,
+      image300: require("./biurowiec.jpg").default,
+    },
+    {
+      id: 6,
+      image72: require("./dywan.jpg").default,
+      image300: require("./dywan.jpg").default,
     }
   ];
   
   const order = {
-    threecolumns: [[1], [2], [3]],
-    twocolumns: [[1, 3], [2]],
+    threecolumns: [[5, 1], [3, 4], [2, 6]],
+    twocolumns: [[5, 4, 2], [1, 4, 6]],
     onecolumn: [projects.map(project => project.id)]
   };
   
