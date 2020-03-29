@@ -1,71 +1,96 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LoadingIndicator from "./../images/loading.gif";
+import Img from "react-image";
 import "./PaintingDetails.scss";
 
-class PaintingDetails extends Component {
-  constructor(props) {
-    super(props);
-    const id = this.props.match.params.id;
-    this.object = this.fetchObject(this.props.get, this.props.adj, id);
-    this.state = { paintingId: id };
-  }
+function PaintingDetails(props) {
+  const [object, setObject] = useState(
+    fetchObject(props.get, props.adj, props.match.params.id)
+  );
+  const [loaded, setLoaded] = useState(false);
+  const [imageURL, setImageURL] = useState(null);
+  const [redirect, setRedirect] = useState({ redirect: false });
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.id !== prevProps.match.params.id) {
-      const id = this.props.match.params.id;
-      this.object = this.fetchObject(this.props.get, this.props.adj, id);
-      this.setState({ paintingId: id });
-    }
-  }
-
-  fetchObject(get, adj, id) {
+  function fetchObject(get, adj, id) {
     return {
       ...get(id),
       ...adj(id)
     };
   }
 
-  render() {
-    if (!this.object.valid) {
-      return <h1>No such painting</h1>;
-    } else {
-      return (
-        <div className="painting-details">
-          {this.object.size && (
-            <div className="description">
-              <span className="title">{this.object.title}</span>
-              <span>
-                {this.object.size[0] +
-                  "x" +
-                  this.object.size[1] +
-                  ", " +
-                  this.object.technique}
-              </span>
-              <span>{"rok " + this.object.year}</span>
-            </div>
+  useEffect(() => {
+    setRedirect({ redirect: false });
+    const o = fetchObject(props.get, props.adj, props.match.params.id);
+    setObject(o);
+    fetch(o.image300)
+      .then(response => response.blob())
+      .then(image => {
+        setImageURL(URL.createObjectURL(image));
+        setLoaded(true);
+      });
+  }, [props.match.params.id, props.get, props.adj]);
+
+  useEffect(() => {
+    function keyHandling(e) {
+      if (e.keyCode === 37 && object.previous !== object.id) {
+        redirectTo(object.previous);
+      } else if (e.keyCode === 39 && object.next !== object.id) {
+        redirectTo(object.next);
+      }
+    }
+    window.addEventListener("keyup", keyHandling);
+    return () => window.removeEventListener("keyup", keyHandling);
+  }, [object.next, object.previous, object.id]);
+
+  function redirectTo(destination) {
+    setLoaded(false);
+    setRedirect({ redirect: true, to: destination });
+  }
+
+  if (redirect.redirect) {
+    return <Redirect push to={`${redirect.to}`} />;
+  }
+
+  if (!object.valid) {
+    return <h1>No such painting</h1>;
+  } else {
+    return (
+      <div className="painting-details">
+        {object.size && (
+          <div className="description">
+            <span className="title">{object.title}</span>
+            <span>
+              {object.size[0] + "x" + object.size[1] + ", " + object.technique}
+            </span>
+            <span>{"rok " + object.year}</span>
+          </div>
+        )}
+
+        <div className="image-navigation-wrapper">
+          <Arrow
+            id={object.previous}
+            direction="left"
+            redirectTo={redirectTo}
+            display={object.id !== object.previous}
+          />
+
+          {loaded && <Img src={imageURL} className="image" alt="image" />}
+
+          {!loaded && (
+            <img src={LoadingIndicator} className="indicator" alt="loading" />
           )}
 
-          <div className="image-navigation-wrapper">
-            <div className="painting-link left-arrow">
-              {this.object.id !== this.object.previous && (
-                <Arrow id={this.object.previous} direction="left" />
-              )}
-            </div>
-            <img
-              className="image"
-              src={this.object.image300}
-              alt={this.object.title}
-            />
-            <div className="painting-link right-arrow">
-              {this.object.id !== this.object.next && (
-                <Arrow id={this.object.next} direction="right" />
-              )}
-            </div>
-          </div>
+          <Arrow
+            id={object.next}
+            direction="right"
+            redirectTo={redirectTo}
+            display={object.id !== object.next}
+          />
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
@@ -75,9 +100,14 @@ function Arrow(props) {
       ? ["fas", "chevron-left"]
       : ["fas", "chevron-right"];
   return (
-    <Link to={props.id.toString()}>
-      <FontAwesomeIcon icon={icon} size="2x" style={{ color: "lightgray" }} />
-    </Link>
+    <div
+      className={`painting-link ${props.direction}-arrow`}
+      onClick={props.display ? () => props.redirectTo(props.id) : () => {}}
+    >
+      {props.display && (
+        <FontAwesomeIcon icon={icon} size="2x" style={{ color: "lightgray" }} />
+      )}
+    </div>
   );
 }
 
